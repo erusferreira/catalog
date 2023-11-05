@@ -1,0 +1,17 @@
+import { injectable, inject, container } from 'tsyringe';
+
+import { CatalogRepository } from '../../adapter/repository/catalog.repository';
+import { CatalogRepositoryInterface } from '../repository/catalog-repository.interface';
+import { logger } from '../../adapter/utils/logger';
+import { Catalog } from '../entity/catalog';
+
+@injectable()
+export class GetAllCatalogsService {
+  constructor(@inject('CatalogRepositoryInterface') private service: CatalogRepositoryInterface) {
+  }
+  
+  public async execute(): Promise<Catalog[]> {
+    const repository = container.resolve(CatalogRepository)
+    return await repository.listAll();
+  }
+}
