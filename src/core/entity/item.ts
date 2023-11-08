@@ -11,8 +11,8 @@ export interface Item extends Document {
   create_at: Date;
   update_at: Date;
   is_active: boolean;
-  category_id: Category;
-  product_id: Product;
+  category: Category;
+  product: Product;
 }
 
 const ItemSchema = new Schema({
@@ -36,12 +36,12 @@ const ItemSchema = new Schema({
     type: Boolean,
     required: true
   },
-  category_id: {
+  category: {
     type: Schema.Types.ObjectId,
     red: 'Category',
     required: true
   },
-  product_id: {
+  product: {
     type: Schema.Types.ObjectId,
     red: 'Product',
     required: true

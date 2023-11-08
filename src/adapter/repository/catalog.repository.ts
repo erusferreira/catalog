@@ -1,4 +1,5 @@
 import { injectable } from 'tsyringe';
+
 import { Catalog, CatalogModel } from '@core/entity/catalog';
 import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
 import { CatalogRequestInterface } from '@adapter/types/catalog-request.interface';

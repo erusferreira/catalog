@@ -8,7 +8,7 @@ export interface Product extends Document {
   ean_code: string;
   unit_measurement: string;
   is_active: boolean;
-  manufaturer_id: Manufacturer;
+  manufaturer: Manufacturer;
   created_at: Date;
   updated_at: Date;
 }
@@ -34,7 +34,7 @@ const ProductSchema = new Schema({
     type: Boolean,
     required: true
   },
-  manufaturer_id: {
+  manufaturer: {
     type: Schema.Types.ObjectId,
     ref: 'Manufacturer',
     required: true

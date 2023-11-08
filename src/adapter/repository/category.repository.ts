@@ -1,4 +1,5 @@
 import { injectable } from 'tsyringe';
+
 import { Category, CategoryModel } from '@core/entity/category';
 import { CategoryRepositoryInterface } from '@core/repository/category-repository.interface';
 import { CategoryRequestInterface } from '@adapter/types/category-request.interface';

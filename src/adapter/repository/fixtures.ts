@@ -44,7 +44,7 @@ export async function fixtures() {
     ean_code: '49000052688',
     unit_measurement: 'ml',
     is_active: true,
-    manufaturer_id: mockManufacturer
+    manufaturer: mockManufacturer
   });
 
   const mockItem: Item = new ItemModel({
@@ -52,11 +52,9 @@ export async function fixtures() {
     description: 'Garrafa contendo 600ml de Coca Cola, acompanha um brinde surpresa',
     price: 14.9,
     image: 'https://meufestval.vtexassets.com/arquivos/ids/189280-1600-auto',
-    create_at: Date,
-    update_at: Date,
     is_active: true,
-    category_id: mockCategory,
-    product_id: mockProduct
+    category: mockCategory,
+    product: mockProduct
   });
   
   try {
