@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "es2016",
     "lib": ["ES2021"],
     "allowJs": true,
@@ -24,7 +25,11 @@
     "useDefineForClassFields": true,
     "removeComments": true,
     "noEmitOnError": true,
-    "types": ["node", "express"]
+    "types": ["node", "express"],
+    "paths": {
+      "@adapter/*": ["adapter/*"],
+      "@core/*": ["core/*"],
+    }
   },
   "include": ["src/**/*", "data/*.json", "src/**/*.hbs"],
   "exclude": [

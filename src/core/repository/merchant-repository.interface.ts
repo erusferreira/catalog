@@ -1,5 +1,5 @@
-import { Merchant } from "../entity/merchant";
-import { MerchantRequestInterface } from '../../adapter/types/merchant-request.interface';
+import { Merchant } from "@core/entity/merchant";
+import { MerchantRequestInterface } from '@adapter/types/merchant-request.interface';
 
 export interface MerchantRepositoryInterface {
   listAll(): Promise<Merchant[]>;

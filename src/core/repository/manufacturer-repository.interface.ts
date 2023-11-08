@@ -1,5 +1,5 @@
-import { Manufacturer } from "../entity/manufacturer";
-import { ManufacturerRequestInterface } from '../../adapter/types/manufacturer-request.interface';
+import { Manufacturer } from "@core/entity/manufacturer";
+import { ManufacturerRequestInterface } from '@adapter/types/manufacturer-request.interface';
 
 export interface ManufacturerRepositoryInterface {
   listAll(): Promise<Manufacturer[]>;

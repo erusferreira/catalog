@@ -1,11 +1,10 @@
-import { logger } from '../utils/logger';
-
-import { Product, ProductModel } from '../../core/entity/product';
-import { Manufacturer, ManufacturerModel } from '../../core/entity/manufacturer';
-import { Merchant, MerchantModel } from '../../core/entity/merchant';
-import { Catalog, CatalogModel } from '../../core/entity/catalog';
-import { Category, CategoryModel } from '../../core/entity/category';
-import { Item, ItemModel } from '../../core/entity/item';
+import { logger } from '@adapter/utils/logger';
+import { Product, ProductModel } from '@core/entity/product';
+import { Manufacturer, ManufacturerModel } from '@core/entity/manufacturer';
+import { Merchant, MerchantModel } from '@core/entity/merchant';
+import { Catalog, CatalogModel } from '@core/entity/catalog';
+import { Category, CategoryModel } from '@core/entity/category';
+import { Item, ItemModel } from '@core/entity/item';
 
 export async function fixtures() {
   const product = await ProductModel.findOne({}).exec();
@@ -30,7 +29,7 @@ export async function fixtures() {
     name: 'Bebidas',
     description: 'Soft Drinks (bebidas não alcoólicas)',
     is_active: true,
-    catalog_id: mockCatalog
+    catalog: mockCatalog
   });
   
   const mockManufacturer: Manufacturer = new ManufacturerModel({

@@ -1,13 +1,13 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { CatalogMapper } from '../../adapter/mapper/catalog.mapper';
-import { MerchantRepository } from '../../adapter/repository/merchant.repository';
-import { CatalogRepository } from '../../adapter/repository/catalog.repository';
-import { CatalogRepositoryInterface } from '../repository/catalog-repository.interface';
-import { MerchantRepositoryInterface } from '../repository/merchant-repository.interface';
-import { CatalogRequestInterface } from '../../adapter/types/catalog-request.interface';
-import { logger } from '../../adapter/utils/logger';
-import { Catalog } from '../entity/catalog';
+import { CatalogMapper } from '@adapter/mapper/catalog';
+import { MerchantRepository } from '@adapter/repository/merchant.repository';
+import { CatalogRepository } from '@adapter/repository/catalog.repository';
+import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
+import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
+import { CatalogRequestInterface } from '@adapter/types/catalog-request.interface';
+import { logger } from '@adapter/utils/logger';
+import { Catalog } from '@core/entity/catalog';
 
 @injectable()
 export class CreateCatalogService {

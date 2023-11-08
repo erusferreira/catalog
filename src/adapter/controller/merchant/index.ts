@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import { injectable, container } from 'tsyringe';
 
-import { GetAllMerchantsService } from '../../../core/usecase/get-all-merchants.service';
-import { CreateMerchantService } from '../../../core/usecase/create-merchant.service';
-import { logger } from '../../utils/logger';
-import { MerchantRequestInterface } from '../../types/merchant-request.interface';
+import { GetAllMerchantsService } from '@core/usecase/merchant/get-all-merchants.service';
+import { CreateMerchantService } from '@core/usecase/merchant/create-merchant.service';
+import { logger } from '@adapter/utils/logger';
+import { MerchantRequestInterface } from '@adapter/types/merchant-request.interface';
 
 @injectable()
 export class MerchantController {

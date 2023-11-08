@@ -1,17 +1,17 @@
 import { Request, Response } from 'express';
 import { injectable, container } from 'tsyringe';
-import { CreateCatalogService } from '../../../core/usecase/create-catalog.service';
-import { DeleteCatalogService } from '../../../core/usecase/delete-catalog.service';
+import { CreateCatalogService } from '@core/usecase/catalog/create-catalog.service';
+import { DeleteCatalogService } from '@core/usecase/catalog/delete-catalog.service';
 
-import { GetAllCatalogsService } from '../../../core/usecase/get-all-catalogs.service';
-import { GetCatalogService } from '../../../core/usecase/get-catalog.service';
-import { UpdateCatalogService } from '../../../core/usecase/update-catalog.service';
-import { CatalogRequestInterface } from '../../types/catalog-request.interface';
-import { logger } from '../../utils/logger';
+import { GetAllCatalogsService } from '@core/usecase/catalog/get-all-catalogs.service';
+import { GetCatalogService } from '@core/usecase/catalog/get-catalog.service';
+import { UpdateCatalogService } from '@core/usecase/catalog/update-catalog.service';
+import { CatalogRequestInterface } from '@adapter/types/catalog-request.interface';
+import { logger } from '@adapter/utils/logger';
 
 @injectable()
 export class CatalogController {
-  async listAll(req: Request, res: Response): Promise<unknown> {
+  public async listAll(req: Request, res: Response): Promise<unknown> {
     try {
       const getAllCatalogsService = container.resolve(GetAllCatalogsService);
       const catalogs = await getAllCatalogsService.execute();
@@ -24,7 +24,7 @@ export class CatalogController {
     }
   }
 
-  async findById(req: Request, res: Response): Promise<unknown> {
+  public async findById(req: Request, res: Response): Promise<unknown> {
     try {
       const { id } = req.params;
       const getCatalogService = container.resolve(GetCatalogService);
@@ -38,7 +38,7 @@ export class CatalogController {
     }
   }
 
-  async create(req: Request, res: Response): Promise<unknown> {
+  public async create(req: Request, res: Response): Promise<unknown> {
     try {
       const bodyRequest = req.body as CatalogRequestInterface;
       const merchantId = req.body.merchant.id;
@@ -50,7 +50,7 @@ export class CatalogController {
     }
   }
 
-  async update(req: Request, res: Response): Promise<unknown> {
+  public async update(req: Request, res: Response): Promise<unknown> {
     try {
       const { id } = req.params;
       const bodyRequest = req.body as CatalogRequestInterface;
@@ -62,7 +62,7 @@ export class CatalogController {
     }
   }
 
-  async delete(req: Request, res: Response): Promise<unknown> {
+  public async delete(req: Request, res: Response): Promise<unknown> {
     try {
       const { id } = req.params;
       const deleteCatalogService = container.resolve(DeleteCatalogService);

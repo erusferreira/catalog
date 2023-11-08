@@ -1,8 +1,8 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { CatalogRepository } from '../../adapter/repository/catalog.repository';
-import { CatalogRepositoryInterface } from '../repository/catalog-repository.interface';
-import { logger } from '../../adapter/utils/logger';
+import { CatalogRepository } from '@adapter/repository/catalog.repository';
+import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
+import { logger } from '@adapter/utils/logger';
 
 @injectable()
 export class DeleteCatalogService {

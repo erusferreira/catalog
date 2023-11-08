@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import { container } from "tsyringe";
 
-import { MerchantController } from "../../controller/merchant";
+import { MerchantController } from "@adapter/controller/merchant";
 
 const merchantRouter = Router();
 const merchantController = container.resolve(MerchantController);

@@ -1,5 +1,5 @@
-import { ProductRequestInterface } from "../../adapter/types/product-request.interface";
-import { Product } from "../entity/product";
+import { ProductRequestInterface } from "@adapter/types/product-request.interface";
+import { Product } from "@core/entity/product";
 
 export interface ProductRepositoryInterface {
   listAll(): Promise<Product[]>;

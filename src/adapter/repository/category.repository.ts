@@ -1,7 +1,7 @@
 import { injectable } from 'tsyringe';
-import { Category, CategoryModel } from '../../core/entity/category';
-import { CategoryRepositoryInterface } from '../../core/repository/category-repository.interface';
-import { CategoryRequestInterface } from '../types/category-request.interface';
+import { Category, CategoryModel } from '@core/entity/category';
+import { CategoryRepositoryInterface } from '@core/repository/category-repository.interface';
+import { CategoryRequestInterface } from '@adapter/types/category-request.interface';
 
 @injectable()
 export class CategoryRepository implements CategoryRepositoryInterface {
@@ -17,18 +17,23 @@ export class CategoryRepository implements CategoryRepositoryInterface {
     throw new Error('Method not implemented.');
   }
 
-  public async findById(merchantId: string): Promise<Category | null> {
-    return await this.modelCategory.findById(merchantId);
+  public async findById(categoryId: string): Promise<Category | null> {
+    return await this.modelCategory.findById(categoryId);
   }
   
   public async create(entity: CategoryRequestInterface): Promise<Category> {
     return await this.modelCategory.create(entity);
   }
 
-  public async update(entity: CategoryRequestInterface): Promise<Category> {
-    throw new Error('Method not implemented.');
+  public async update(entity: CategoryRequestInterface, catalogId: string): Promise<Category | null> {
+    return await this.modelCategory.findByIdAndUpdate(catalogId, entity, {
+      new: true,
+      runValidators: true
+    });
   }
-  public async delete(id: string): Promise<void> {
-    throw new Error('Method not implemented.');
+
+  public async delete(category: Category): Promise<void | any> {
+    const categoryToDelete = await this.findById(category.id);
+    return categoryToDelete?.deleteOne();
   }
 }

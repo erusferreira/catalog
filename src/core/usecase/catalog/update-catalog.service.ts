@@ -1,10 +1,10 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { Catalog } from '../entity/catalog';
-import { CatalogRepositoryInterface } from '../repository/catalog-repository.interface';
-import { CatalogRepository } from '../../adapter/repository/catalog.repository';
-import { CatalogRequestInterface } from '../../adapter/types/catalog-request.interface';
-import { CatalogMapper } from '../../adapter/mapper/catalog.mapper';
+import { Catalog } from '@core/entity/catalog';
+import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
+import { CatalogRepository } from '@adapter/repository/catalog.repository';
+import { CatalogRequestInterface } from '@adapter/types/catalog-request.interface';
+import { CatalogMapper } from '@adapter/mapper/catalog';
 
 @injectable()
 export class UpdateCatalogService {

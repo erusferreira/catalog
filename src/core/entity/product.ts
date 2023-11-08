@@ -1,6 +1,6 @@
 import { Schema, Document, model } from 'mongoose';
 
-import { Manufacturer } from '../entity/manufacturer';
+import { Manufacturer } from '@core/entity/manufacturer';
 
 export interface Product extends Document {
   name: string;

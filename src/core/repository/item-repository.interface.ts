@@ -1,5 +1,5 @@
-import { Item } from "../entity/item";
-import { ItemRequestInterface } from '../../adapter/types/item-request.interface';
+import { Item } from "@core/entity/item";
+import { ItemRequestInterface } from '@adapter/types/item-request.interface';
 
 export interface ItemRepositoryInterface {
   listAllByCategory(categoryId: string): Promise<Item[]>;
