@@ -18,11 +18,11 @@ export class CatalogRepository implements CatalogRepositoryInterface {
     return await this.modelCatalog.findById(catalogId);
   }
 
-  public async create(entity: CatalogRequestInterface): Promise<Catalog> {
+  public async create(entity: Catalog): Promise<Catalog> {
     return await this.modelCatalog.create(entity);
   }
 
-  public async update(entity: CatalogRequestInterface, catalogId: string): Promise<Catalog | null> {
+  public async update(entity: Catalog, catalogId: string): Promise<Catalog | null> {
     return await this.modelCatalog.findByIdAndUpdate(catalogId, entity, {
       new: true,
       runValidators: true

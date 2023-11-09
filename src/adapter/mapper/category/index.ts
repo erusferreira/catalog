@@ -14,11 +14,11 @@ export class CategoryMapper {
     return category as Category
   }
 
-  public static categoryUpdateToDomain(categoryRequest: CategoryRequestInterface) {
+  public static categoryUpdateToDomain(categoryRequest: CategoryRequestInterface, catalog: Catalog) {
     const category = {
       name: categoryRequest.name,
       description: categoryRequest.description,
-      catalog: categoryRequest.catalog,
+      catalog: catalog,
       is_active: categoryRequest.is_active
     };
     return category as Category
@@ -29,7 +29,7 @@ export class CategoryMapper {
       id: category._id.toString(),
       name: category.name,
       description: category.description,
-      catalog: category.catalog,
+      catalogId: category.catalog,
       is_active: category.is_active
     }
     return result;

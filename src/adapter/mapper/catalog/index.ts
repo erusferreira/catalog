@@ -4,7 +4,7 @@ import { CatalogRequestInterface } from "@adapter/types/catalog-request.interfac
 
 export class CatalogMapper {
   
-  public static catalogCreateToDomain(catalogRequest: CatalogRequestInterface, merchant: Merchant | null) {
+  public static catalogCreateToDomain(catalogRequest: CatalogRequestInterface, merchant: Merchant) {
     const catalog = {
       name: catalogRequest.name,
       description: catalogRequest.description,
@@ -14,11 +14,11 @@ export class CatalogMapper {
     return catalog as Catalog
   }
 
-  public static catalogUpdateToDomain(catalogUpdateRequest: CatalogRequestInterface) {
+  public static catalogUpdateToDomain(catalogUpdateRequest: CatalogRequestInterface, merchant: Merchant) {
     const catalog = {
       name: catalogUpdateRequest.name,
       description: catalogUpdateRequest.description,
-      merchant: catalogUpdateRequest.merchant,
+      merchant: merchant,
       is_active: catalogUpdateRequest.is_active
     };
     return catalog as Catalog
@@ -29,6 +29,7 @@ export class CatalogMapper {
       id: catalog._id.toString(),
       name: catalog.name,
       description: catalog.description,
+      merchantId: catalog.merchant,
       is_active: catalog.is_active 
     }
     return result;

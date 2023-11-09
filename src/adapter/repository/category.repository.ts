@@ -26,7 +26,7 @@ export class CategoryRepository implements CategoryRepositoryInterface {
     return await this.modelCategory.create(entity);
   }
 
-  public async update(entity: CategoryRequestInterface, catalogId: string): Promise<Category | null> {
+  public async update(entity: Category, catalogId: string): Promise<Category | null> {
     return await this.modelCategory.findByIdAndUpdate(catalogId, entity, {
       new: true,
       runValidators: true

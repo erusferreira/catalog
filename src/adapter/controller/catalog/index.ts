@@ -41,9 +41,8 @@ export class CatalogController {
   public async create(req: Request, res: Response): Promise<unknown> {
     try {
       const bodyRequest = req.body as CatalogRequestInterface;
-      const merchantId = req.body.merchant.id;
       const createCatalogService = container.resolve(CreateCatalogService);
-      const create = await createCatalogService.execute(bodyRequest, merchantId);
+      const create = await createCatalogService.execute(bodyRequest);
       return res.status(201).json(create);
     } catch (error: any) {
       return res.status(500).json({ message: error.message });

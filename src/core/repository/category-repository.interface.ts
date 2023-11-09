@@ -6,7 +6,7 @@ export interface CategoryRepositoryInterface {
   listAllByCatalog(catalogId: string): Promise<Category[]>;
   findById(id: string): Promise<Category | null>;
   create(entity: CategoryRequestInterface): Promise<Category>;
-  update(entity: CategoryRequestInterface, catalogId: string): Promise<Category | null>;
+  update(entity: Category, catalogId: string): Promise<Category | null>;
   delete(category: Category): Promise<void | null>;
 }
 

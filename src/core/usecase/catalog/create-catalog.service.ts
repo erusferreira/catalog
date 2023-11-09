@@ -16,12 +16,17 @@ export class CreateCatalogService {
     @inject('MerchantRepositoryInterface') private merchantRepository: MerchantRepositoryInterface
   ) {}
   
-  public async execute(cataloRequest: CatalogRequestInterface, merchantId: string): Promise<Catalog[] | any> {
+  public async execute(catalogRequest: CatalogRequestInterface): Promise<Catalog[] | any> {
     const mRepository = container.resolve(MerchantRepository);
     const cRepository = container.resolve(CatalogRepository);
 
-    const merchant = await mRepository.findById(merchantId);
-    const catalog = CatalogMapper.catalogCreateToDomain(cataloRequest, merchant);
+    const merchant = await mRepository.findById(catalogRequest.merchantId);
+
+    if (!merchant) {
+      throw new Error(`Catalog creation not allowed onde that merchantId: ${catalogRequest.merchantId} was not found!`);
+    }
+    
+    const catalog = CatalogMapper.catalogCreateToDomain(catalogRequest, merchant);
     const insertedCatalog = await cRepository.create(catalog);
     const catalogDto = CatalogMapper.toDTO(insertedCatalog);
 
