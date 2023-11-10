@@ -42,9 +42,25 @@ import { ProductRepositoryInterface } from '@core/repository/product-repository.
 import { CreateProductService } from '@core/usecase/product/create-product.service';
 import { ProductController } from '@adapter/controller/product';
 
+import { AuthService } from '@core/usecase/auth/auth.service';
+import { AuthController } from '@adapter/controller/auth';
+
+import { UserRepository } from '@adapter/repository/user.repository';
+import { UserRepositoryInterface } from '@core/repository/user-repository.interface';
+import { GetAllUsersService } from '@core/usecase/user/get-all-users.service';
+import { CreateUserService } from '@core/usecase/user/create-user.service';
+import { UserController } from '@adapter/controller/user';
 
 export function addDependencyInjectionConfig(): void {
   container.register('HealthCheckController', { useClass: HealthCheckController });
+
+  container.register('AuthController', { useValue: AuthController });
+  container.register('AuthService', { useValue: AuthService });
+
+  container.register('UserController', { useValue: UserController });
+  container.register('GetAllUsersService', { useValue: GetAllUsersService });
+  container.register('CreateUserService', { useValue: CreateUserService });
+  container.register('UserRepositoryInterface', { useValue: UserRepository });
 
   container.register('CatalogController', { useValue: CatalogController });
   container.register('GetAllCatalogsService', { useValue: GetAllCatalogsService });

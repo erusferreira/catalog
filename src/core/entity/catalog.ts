@@ -22,7 +22,7 @@ const CatalogSchema = new Schema({
   },
   merchant: {
     type: Schema.Types.ObjectId,
-    red: 'Merchant',
+    ref: 'Merchant',
     required: true
   },
   is_active: {

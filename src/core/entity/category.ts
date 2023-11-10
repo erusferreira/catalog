@@ -26,7 +26,7 @@ const CategorySchema = new Schema({
   },
   catalog: {
     type: Schema.Types.ObjectId,
-    red: 'Catalog',
+    ref: 'Catalog',
     required: true
   },
 },

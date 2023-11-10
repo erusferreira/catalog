@@ -38,12 +38,12 @@ const ItemSchema = new Schema({
   },
   category: {
     type: Schema.Types.ObjectId,
-    red: 'Category',
+    ref: 'Category',
     required: true
   },
   product: {
     type: Schema.Types.ObjectId,
-    red: 'Product',
+    ref: 'Product',
     required: true
   }
 },{

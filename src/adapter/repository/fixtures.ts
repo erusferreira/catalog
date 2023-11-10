@@ -5,6 +5,8 @@ import { Merchant, MerchantModel } from '@core/entity/merchant';
 import { Catalog, CatalogModel } from '@core/entity/catalog';
 import { Category, CategoryModel } from '@core/entity/category';
 import { Item, ItemModel } from '@core/entity/item';
+import { User, UserModel } from '@core/entity/user';
+import { RoleType } from '@adapter/enums';
 
 export async function fixtures() {
   const product = await ProductModel.findOne({}).exec();
@@ -12,9 +14,18 @@ export async function fixtures() {
     return;
   }
 
+  const mockUser: User = new UserModel({
+    name: 'John Doe',
+    email: 'email@email.com',
+    cpf: '918.483.790-05',
+    is_active: true,
+    roles: RoleType.User
+  });
+
   const mockMerchant: Merchant = new MerchantModel({
     name: 'Chumbo Bar',
     cnpj: '11.004.381/0001-01',
+    owner: mockUser,
     is_active: true
   });
 
@@ -58,6 +69,7 @@ export async function fixtures() {
   });
   
   try {
+    await mockUser.save();
     await mockMerchant.save();
     await mockCatalog.save();
     await mockCategory.save();

@@ -3,6 +3,7 @@ import { injectable } from 'tsyringe';
 import { Merchant, MerchantModel } from '@core/entity/merchant';
 import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
 import { MerchantRequestInterface } from '@adapter/types/merchant-request.interface';
+import { User } from '@core/entity/user';
 
 @injectable()
 export class MerchantRepository implements MerchantRepositoryInterface {
@@ -17,7 +18,7 @@ export class MerchantRepository implements MerchantRepositoryInterface {
     return await this.modelMerchant.findById(merchantId);
   }
 
-  public async create(merchant: MerchantRequestInterface): Promise<Merchant> {
+  public async create(merchant: Merchant): Promise<Merchant> {
     const newMerchant = new this.modelMerchant(merchant);
     return await newMerchant.save();
   }
