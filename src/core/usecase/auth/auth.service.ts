@@ -1,10 +1,12 @@
 import { inject, injectable, container } from "tsyringe";
 import bcrypt from 'bcrypt';
+const jwt = require('jsonwebtoken');
 
 import { UserRepositoryInterface } from '@core/repository/user-repository.interface';
 import { UserRepository } from '@adapter/repository/user.repository';
 import { LoginRequest, RegisterRequest } from "@adapter/types/auth-request.interface";
 import { AuthMapper } from "@adapter/mapper/auth";
+import * as config from "@adapter/config/config";
 
 @injectable()
 export class AuthService {
@@ -30,7 +32,8 @@ export class AuthService {
       if (!passMatch) {
         throw new Error(`Usuário não autorizado!`);
       }
-      return AuthMapper.registerToDTO(user);
+      const token = jwt.sign({id: user.id}, config.JWT_SECRET, { expiresIn: 300 })
+      return AuthMapper.loginToDTO(user, token);
     }
 
 }

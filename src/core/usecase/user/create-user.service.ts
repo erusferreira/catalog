@@ -1,5 +1,4 @@
 import { inject, injectable, container } from "tsyringe";
-import bcrypt from 'bcrypt';
 
 import { UserRepositoryInterface } from '@core/repository/user-repository.interface';
 import { UserRepository } from '@adapter/repository/user.repository';

@@ -28,5 +28,18 @@ export class AuthMapper {
     }
     return register;
   }
+
+  public static loginToDTO(user: User, token: string) {
+    const login = {
+      id: user._id.toString(),
+      name: user.name,
+      email: user.email,
+      cpf: user.cpf,
+      is_active: user.is_active,
+      roles: user.roles,
+      token
+    }
+    return login;
+  }
   
 }
