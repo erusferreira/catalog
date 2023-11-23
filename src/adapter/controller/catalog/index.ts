@@ -1,13 +1,14 @@
-import { Request, Response } from 'express';
-import { injectable, container } from 'tsyringe';
-import { CreateCatalogService } from '@core/usecase/catalog/create-catalog.service';
-import { DeleteCatalogService } from '@core/usecase/catalog/delete-catalog.service';
+import { Request, Response } from "express";
+import { injectable, container } from "tsyringe";
 
-import { GetAllCatalogsService } from '@core/usecase/catalog/get-all-catalogs.service';
-import { GetCatalogService } from '@core/usecase/catalog/get-catalog.service';
-import { UpdateCatalogService } from '@core/usecase/catalog/update-catalog.service';
-import { CatalogRequestInterface } from '@adapter/types/catalog-request.interface';
-import { logger } from '@adapter/utils/logger';
+import { CreateCatalogService } from "@core/usecase/catalog/create-catalog.service";
+import { DeleteCatalogService } from "@core/usecase/catalog/delete-catalog.service";
+import { GetAllCatalogsService } from "@core/usecase/catalog/get-all-catalogs.service";
+import { GetAllCatalogsByMerchantService } from "@core/usecase/catalog/get-all-by-merchant.service";
+import { GetCatalogService } from "@core/usecase/catalog/get-catalog.service";
+import { UpdateCatalogService } from "@core/usecase/catalog/update-catalog.service";
+import { CatalogRequestInterface } from "@adapter/types/catalog-request.interface";
+import { logger } from "@adapter/utils/logger";
 
 @injectable()
 export class CatalogController {
@@ -16,6 +17,20 @@ export class CatalogController {
       const getAllCatalogsService = container.resolve(GetAllCatalogsService);
       const catalogs = await getAllCatalogsService.execute();
       if (catalogs.length > 0) {
+        return res.status(200).json(catalogs);
+      }
+    } catch (error: any) {
+      logger.error(error);
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  public async listAllByMerchantId(req: Request, res: Response): Promise<unknown> {
+    try {
+      const { id } = req.params;
+      const getAllByMerchantId = container.resolve(GetAllCatalogsByMerchantService);
+      const catalogs = await getAllByMerchantId.execute(id);
+      if (catalogs && catalogs.length > 0) {
         return res.status(200).json(catalogs);
       }
     } catch (error: any) {

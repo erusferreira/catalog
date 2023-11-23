@@ -14,6 +14,12 @@ export class CatalogRepository implements CatalogRepositoryInterface {
     return allCatalogs;
   }
 
+  public async listAllByMerchantId(merchantId: string): Promise<Catalog[] | null> {
+    return await this.modelCatalog.find({
+      merchant: merchantId
+    })
+  }
+
   public async findById(catalogId: string): Promise<Catalog | null> {
     return await this.modelCatalog.findById(catalogId);
   }

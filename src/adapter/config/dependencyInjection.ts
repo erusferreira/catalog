@@ -5,6 +5,7 @@ import { HealthCheckController } from '@adapter/controller/health';
 import { CatalogRepository } from '@adapter/repository/catalog.repository';
 import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
 import { GetAllCatalogsService } from '@core/usecase/catalog/get-all-catalogs.service';
+import { GetAllCatalogsByMerchantService } from '@core/usecase/catalog/get-all-by-merchant.service';
 import { GetCatalogService } from '@core/usecase/catalog/get-catalog.service';
 import { CreateCatalogService } from '@core/usecase/catalog/create-catalog.service';
 import { UpdateCatalogService } from '@core/usecase/catalog/update-catalog.service';
@@ -64,6 +65,7 @@ export function addDependencyInjectionConfig(): void {
 
   container.register('CatalogController', { useValue: CatalogController });
   container.register('GetAllCatalogsService', { useValue: GetAllCatalogsService });
+  container.register('GetAllCatalogsByMerchantService', { useValue: GetAllCatalogsByMerchantService });
   container.register('GetCatalogService', { useValue: GetCatalogService });
   container.register('CreateCatalogService', { useValue: CreateCatalogService });
   container.register('UpdateCatalogService', { useValue: UpdateCatalogService });
