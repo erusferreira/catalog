@@ -4,12 +4,13 @@ import pinoHTTP, { HttpLogger } from "pino-http";
 import helmet from "helmet";
 const timeout = require("connect-timeout");
 import cors from "cors";
+import path from "path";
 
 import routes from "../routes";
 import { logger } from "../utils/logger";
 import { PINO_HTTP_LOG_LEVEL } from "./config";
 import { addDependencyInjectionConfig } from "./dependencyInjection";
-import path from "path";
+import { errorHandler } from "@adapter/utils/error-handling";
 
 export class App {
   private server: express.Application;
@@ -25,6 +26,7 @@ export class App {
     this.addLogger(pinoHTTP({ logger, useLevel: PINO_HTTP_LOG_LEVEL as any }));
     this.addCors();
     this.addRoutes(routes);
+    this.addErrorHandling();
     this.addSecurityHeaders();
     this.stopOnTimeout();
   }
@@ -100,5 +102,9 @@ export class App {
         path.join(`${this.public}`, "../../../../public/index.html")
       );
     });
+  }
+
+  private addErrorHandling() {
+    this.server.use(errorHandler);
   }
 }

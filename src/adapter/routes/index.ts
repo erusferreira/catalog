@@ -8,12 +8,12 @@ import authRouter from './auth';
 import userRouter from './user';
 
 const routes = Router();
+routes.use(authRouter);
 routes.use(healthRouter);
 routes.use(catalogRouter);
 routes.use(merchantRouter);
 routes.use(categoryRouter);
 routes.use(itemRouter);
-routes.use(authRouter);
 routes.use(userRouter);
 
 export default routes;

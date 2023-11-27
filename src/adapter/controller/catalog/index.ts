@@ -8,7 +8,7 @@ import { GetAllCatalogsByMerchantService } from "@core/usecase/catalog/get-all-b
 import { GetCatalogService } from "@core/usecase/catalog/get-catalog.service";
 import { UpdateCatalogService } from "@core/usecase/catalog/update-catalog.service";
 import { CatalogRequestInterface } from "@adapter/types/catalog-request.interface";
-import { logger } from "@adapter/utils/logger";
+import { AuthError } from "@adapter/utils/errors";
 
 @injectable()
 export class CatalogController {
@@ -20,7 +20,9 @@ export class CatalogController {
         return res.status(200).json(catalogs);
       }
     } catch (error: any) {
-      logger.error(error);
+      if (error instanceof AuthError) {
+        return res.status(403).json({ message: error.message });
+      }
       return res.status(500).json({ message: error.message });
     }
   }
@@ -34,7 +36,9 @@ export class CatalogController {
         return res.status(200).json(catalogs);
       }
     } catch (error: any) {
-      logger.error(error);
+      if (error instanceof AuthError) {
+        return res.status(403).json({ message: error.message });
+      }
       return res.status(500).json({ message: error.message });
     }
   }
@@ -48,7 +52,9 @@ export class CatalogController {
         return res.status(200).json(catalog);
       }
     } catch (error: any) {
-      logger.error(error);
+      if (error instanceof AuthError) {
+        return res.status(403).json({ message: error.message });
+      }
       return res.status(500).json({ message: error.message });
     }
   }
@@ -60,6 +66,9 @@ export class CatalogController {
       const create = await createCatalogService.execute(bodyRequest);
       return res.status(201).json(create);
     } catch (error: any) {
+      if (error instanceof AuthError) {
+        return res.status(403).json({ message: error.message });
+      }
       return res.status(500).json({ message: error.message });
     }
   }
@@ -72,6 +81,9 @@ export class CatalogController {
       const update = await updateCatalogService.execute(bodyRequest, id);
       return res.status(201).json(update);
     } catch (error: any) {
+      if (error instanceof AuthError) {
+        return res.status(403).json({ message: error.message });
+      }
       return res.status(500).json({ message: error.message });
     }
   }
@@ -85,6 +97,9 @@ export class CatalogController {
         return res.status(200).send({ message: "OK" });
       }
     } catch (error: any) {
+      if (error instanceof AuthError) {
+        return res.status(403).json({ message: error.message });
+      }
       return res.status(500).json({ message: error.message });
     }
   }

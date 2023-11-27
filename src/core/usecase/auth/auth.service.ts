@@ -32,7 +32,7 @@ export class AuthService {
       if (!passMatch) {
         throw new Error(`Usuário não autorizado!`);
       }
-      const token = jwt.sign({id: user.id}, config.JWT_SECRET, { expiresIn: 300 })
+      const token = jwt.sign({id: user.id}, config.JWT_SECRET, { expiresIn: config.JWT_EXPIRES_IN_SECONDS })
       return AuthMapper.loginToDTO(user, token);
     }
 
