@@ -1,8 +1,8 @@
 ## Objetivo
 
-Este repositório é parte de uma arquitetura de catálogo, projeto que faz parte de uma ação de PDI para aprimorar os conhecimentos de profundidade técnica utilizando tecnologias frontend e backend.
+Este repositório é parte de uma arquitetura de catálogo, projeto que faz parte de uma ação de PDI para aprimorar os conhecimentos de profundidade técnica utilizando diversas tecnologias de backend e frontend.
 O objetivo é construir um produto responsável pela gestão do catálogo e também permitir o compartilhamento deste catálogo com clientes.
-O projeto deverá ter ao menos 2 microserviços em tecnologias distintas, 2 clients frontend, banco de dados, deverá utilizar alguma plataforma de stream de eventos. [Esta aplicação encontra-se em construção]
+O projeto terá ao menos 2 microserviços em tecnologias distintas, microfrontends, banco de dados relacional e não relacional e irá utilizar alguma plataforma de stream de eventos (Ex: Kafka). [Esta aplicação encontra-se em construção]
 
 ## Serviço Catálogo
 
