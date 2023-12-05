@@ -14,16 +14,16 @@ export const isAuthenticated = async (req: Request, res: Response, next: NextFun
     const decoded: any = await new Promise((resolve, reject) => {
       jwt.verify(token, JWT_SECRET, (error: any, decoded: any) => {
         if (error) {
-          reject(new AuthError('Token inválido!'));
+          reject(new AuthError('O token de autenticação fornecido expirou. Faça o login novamente para obter um novo token.'));
         } else {
           resolve(decoded);
         }
       });
     });
-
+    
     req.id = decoded.id;
     next();
   } catch (error: any) {
-    next(error);
+    res.status(401).json({message: new AuthError('Sessão expirada. Faça um novo login').message});
   }
 }

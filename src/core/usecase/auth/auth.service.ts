@@ -7,6 +7,7 @@ import { UserRepository } from '@adapter/repository/user.repository';
 import { LoginRequest, RegisterRequest } from "@adapter/types/auth-request.interface";
 import { AuthMapper } from "@adapter/mapper/auth";
 import * as config from "@adapter/config/config";
+import { AuthError } from "@adapter/utils/errors";
 
 @injectable()
 export class AuthService {
@@ -20,17 +21,17 @@ export class AuthService {
       const user = await aRepository.findByEmail(userLogin.email);
 
       if (!user) {
-        throw new Error(`Usuário com o email: ${userLogin.email} não encontrado!`);
+        throw new AuthError(`Usuário com o email: ${userLogin.email} não encontrado!`);
       }
 
       if (!user.is_active) {
-        throw new Error(`Usuário desativado!`);
+        throw new AuthError(`Usuário desativado!`);
       }
 
       const passMatch = await bcrypt.compare(userLogin.password, user.password);
 
       if (!passMatch) {
-        throw new Error(`Usuário não autorizado!`);
+        throw new AuthError(`Usuário não autorizado!`);
       }
       const token = jwt.sign({id: user.id}, config.JWT_SECRET, { expiresIn: config.JWT_EXPIRES_IN_SECONDS })
       return AuthMapper.loginToDTO(user, token);
