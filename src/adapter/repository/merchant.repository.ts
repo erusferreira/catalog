@@ -14,6 +14,10 @@ export class MerchantRepository implements MerchantRepositoryInterface {
     return await this.modelMerchant.find();
   }
 
+  public async listAllByOwner(ownerId: string): Promise<Merchant[]> {
+    return await this.modelMerchant.find({ owner: ownerId }).exec();
+  }
+
   public async findById(merchantId: string): Promise<Merchant | null> {
     return await this.modelMerchant.findById(merchantId);
   }

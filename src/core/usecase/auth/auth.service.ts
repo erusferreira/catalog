@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken');
 
 import { UserRepositoryInterface } from '@core/repository/user-repository.interface';
 import { UserRepository } from '@adapter/repository/user.repository';
+import { MerchantRepositoryInterface } from "@core/repository/merchant-repository.interface";
+import { MerchantRepository } from "@adapter/repository/merchant.repository";
+
 import { LoginRequest, RegisterRequest } from "@adapter/types/auth-request.interface";
 import { AuthMapper } from "@adapter/mapper/auth";
 import * as config from "@adapter/config/config";
@@ -13,12 +16,15 @@ import { AuthError } from "@adapter/utils/errors";
 export class AuthService {
   
   constructor(
-    @inject('UserRepositoryInterface') private userRepository: UserRepositoryInterface
+    @inject('UserRepositoryInterface') private userRepository: UserRepositoryInterface,
+    @inject('MerchantRepositoryInterface') private merchantRepository: MerchantRepositoryInterface
   ) {}
 
     public async login(userLogin: LoginRequest) {
       const aRepository = container.resolve(UserRepository);
       const user = await aRepository.findByEmail(userLogin.email);
+      const mRepository = container.resolve(MerchantRepository);
+      const merchants = await mRepository.listAllByOwner(user?.id);
 
       if (!user) {
         throw new AuthError(`Usuário com o email: ${userLogin.email} não encontrado!`);
@@ -34,7 +40,7 @@ export class AuthService {
         throw new AuthError(`Usuário não autorizado!`);
       }
       const token = jwt.sign({id: user.id}, config.JWT_SECRET, { expiresIn: config.JWT_EXPIRES_IN_SECONDS })
-      return AuthMapper.loginToDTO(user, token);
+      return AuthMapper.loginToDTO(user, token, merchants);
     }
 
 }
