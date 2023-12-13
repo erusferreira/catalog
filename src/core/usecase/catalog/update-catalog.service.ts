@@ -7,13 +7,15 @@ import { CatalogRequestInterface } from '@adapter/types/catalog-request.interfac
 import { CatalogMapper } from '@adapter/mapper/catalog';
 import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
 import { MerchantRepository } from '@adapter/repository/merchant.repository';
+import { KafkaProducer } from '@adapter/message-broker/kafka-producer/kafka-producer';
 
 @injectable()
 export class UpdateCatalogService {
   
   constructor(
     @inject('CatalogRepositoryInterface') private catalogRepository: CatalogRepositoryInterface,
-    @inject('MerchantRepositoryInterface') private merchantRepository: MerchantRepositoryInterface
+    @inject('MerchantRepositoryInterface') private merchantRepository: MerchantRepositoryInterface,
+    @inject('KafkaProducer') private kafkaProducer: KafkaProducer
   ) {}
   
   public async execute(catalogRequest: CatalogRequestInterface, catalogId: string): Promise<Catalog | any> {
@@ -30,6 +32,7 @@ export class UpdateCatalogService {
     const insertedCatalog = await cRepository.update(catalog, catalogId);
 
     if (insertedCatalog) {
+      this.kafkaProducer.sendMessage(`The catalog ${catalogId} has being updated!`)
       return CatalogMapper.toDTO(insertedCatalog);
     } else {
       throw new Error('Catalog could not be updated because was not found!')

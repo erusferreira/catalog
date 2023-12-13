@@ -52,6 +52,8 @@ import { GetAllUsersService } from '@core/usecase/user/get-all-users.service';
 import { CreateUserService } from '@core/usecase/user/create-user.service';
 import { UserController } from '@adapter/controller/user';
 
+import { KafkaProducer } from '@adapter/message-broker/kafka-producer/kafka-producer';
+
 export function addDependencyInjectionConfig(): void {
   container.register('HealthCheckController', { useClass: HealthCheckController });
 
@@ -99,4 +101,6 @@ export function addDependencyInjectionConfig(): void {
   container.register('CreateProductService', { useValue: CreateProductService });
   container.register('ProductRepositoryInterface', { useValue: ProductRepository });
 
+  container.registerSingleton('KafkaProducer', KafkaProducer);
+  
 }

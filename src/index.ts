@@ -10,6 +10,7 @@ import { fixtures } from '@adapter/repository/fixtures';
 const port = process.env.PORT;
 const createApp = new App();
 const db = new Database();
+
 const server = createApp.getServerReference();
 
 server.listen(port, () => {
