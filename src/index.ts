@@ -7,6 +7,8 @@ import { logger } from "@adapter/utils/logger";
 import { MONGO_URL } from '@adapter/config/config';
 import { fixtures } from '@adapter/repository/fixtures';
 
+import './adapter/message-broker/consumer'
+
 const port = process.env.PORT;
 const createApp = new App();
 const db = new Database();
