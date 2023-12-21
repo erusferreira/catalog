@@ -1,8 +1,8 @@
 ## Objetivo
 
 Este repositório é parte de uma arquitetura de catálogo composta por diversos projetos Backend e Frontend.
-O objetivo é construir um produto responsável pela gestão do catálogo e também permitir o compartilhamento deste catálogo com clientes.
-O projeto é composto por 2 microserviços e microfrontends, també conta com banco de dados não relacional. Também faz parte dessa arquitetura a plataforma de stream de eventos Kafka. [Esta aplicação encontra-se em construção]
+O objetivo é construir um produto responsável pela gestão do catálogo e permitir o seu compartilhamento com clientes.
+O projeto é composto por microserviços e microfrontends, utiliza banco de dados não relacional e faz uso de mensageria com Kafka. [Em desenvolvimento]
 
 ## Serviço Catálogo
 
