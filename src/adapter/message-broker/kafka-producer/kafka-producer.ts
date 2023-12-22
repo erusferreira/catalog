@@ -4,6 +4,7 @@ import { logger } from '../../utils/logger';
 import { MessageBrokerInterface } from "@adapter/message-broker/kafka-producer/message-broker.interface";
 import { KAFKA_TOPIC } from '@adapter/config/config';
 import { KAFKA_BROKER_ADDRESS, KAFKA_BROKER_CLIENTID } from '@adapter/config/config';
+import { CatalogUpdateNotificationInterface } from '@adapter/types/catalog-update-notification.interface';
 
 export class KafkaProducer implements MessageBrokerInterface {
 
@@ -31,11 +32,11 @@ export class KafkaProducer implements MessageBrokerInterface {
       });
   }
 
-  public async sendMessage(message: string): Promise<void> {
+  public async sendNotification(catalogUpdateNotification: CatalogUpdateNotificationInterface): Promise<void> {
     await this.connect();
     const dataFormatted = {
       date: new Date().toISOString(),
-      message
+      value: catalogUpdateNotification
     }
     await this.producer.send({
         topic: KAFKA_TOPIC,

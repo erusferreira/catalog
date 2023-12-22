@@ -8,6 +8,7 @@ import { CatalogMapper } from '@adapter/mapper/catalog';
 import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
 import { MerchantRepository } from '@adapter/repository/merchant.repository';
 import { KafkaProducer } from '@adapter/message-broker/kafka-producer/kafka-producer';
+import { CatalogUpdateNotificationInterface } from '@adapter/types/catalog-update-notification.interface';
 
 @injectable()
 export class UpdateCatalogService {
@@ -32,7 +33,13 @@ export class UpdateCatalogService {
     const insertedCatalog = await cRepository.update(catalog, catalogId);
 
     if (insertedCatalog) {
-      this.kafkaProducer.sendMessage(`The catalog ${catalogId} has being updated!`)
+      const catalogUpdateNotificationDTO: CatalogUpdateNotificationInterface = {
+        merchantId: catalogRequest.merchantId,
+        catalogId,
+        message: `The catalog ${catalogId} of merchant ${catalogRequest.merchantId} has being updated!`
+      }
+      this.kafkaProducer.sendNotification(catalogUpdateNotificationDTO);
+
       return CatalogMapper.toDTO(insertedCatalog);
     } else {
       throw new Error('Catalog could not be updated because was not found!')

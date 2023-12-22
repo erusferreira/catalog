@@ -1,5 +1,6 @@
+import { CatalogUpdateNotificationInterface } from '@adapter/types/catalog-update-notification.interface';
 export interface MessageBrokerInterface {
   connect(): Promise<void>;
   disconnect(): Promise<void>;
-  sendMessage(message: unknown): Promise<unknown>
+  sendNotification(catalogUpdateNotification: CatalogUpdateNotificationInterface): Promise<unknown>
 }
