@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt';
+
 import { logger } from '@adapter/utils/logger';
 import { Product, ProductModel } from '@core/entity/product';
 import { Manufacturer, ManufacturerModel } from '@core/entity/manufacturer';
@@ -18,6 +20,7 @@ export async function fixtures() {
     name: 'John Doe',
     email: 'email@email.com',
     cpf: '918.483.790-05',
+    password: bcrypt.hashSync('admin123', 10),
     is_active: true,
     roles: RoleType.User
   });
