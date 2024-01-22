@@ -7,7 +7,7 @@ import { CatalogRequestInterface } from '@adapter/types/catalog-request.interfac
 import { CatalogMapper } from '@adapter/mapper/catalog';
 import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
 import { MerchantRepository } from '@adapter/repository/merchant.repository';
-// import { KafkaProducer } from '@adapter/message-broker/kafka-producer/kafka-producer';
+import { KafkaProducer } from '@adapter/message-broker/kafka-producer/kafka-producer';
 import { CatalogUpdateNotificationInterface } from '@adapter/types/catalog-update-notification.interface';
 
 @injectable()
@@ -16,7 +16,7 @@ export class UpdateCatalogService {
   constructor(
     @inject('CatalogRepositoryInterface') private catalogRepository: CatalogRepositoryInterface,
     @inject('MerchantRepositoryInterface') private merchantRepository: MerchantRepositoryInterface,
-    // @inject('KafkaProducer') private kafkaProducer: KafkaProducer
+    @inject('KafkaProducer') private kafkaProducer: KafkaProducer
   ) {}
   
   public async execute(catalogRequest: CatalogRequestInterface, catalogId: string): Promise<Catalog | any> {
@@ -38,7 +38,7 @@ export class UpdateCatalogService {
         catalogId,
         message: `The catalog ${catalogId} of merchant ${catalogRequest.merchantId} has being updated!`
       }
-      // this.kafkaProducer.sendNotification(catalogUpdateNotificationDTO);
+      this.kafkaProducer.sendNotification(catalogUpdateNotificationDTO);
 
       return CatalogMapper.toDTO(insertedCatalog);
     } else {

@@ -101,6 +101,6 @@ export function addDependencyInjectionConfig(): void {
   container.register('CreateProductService', { useValue: CreateProductService });
   container.register('ProductRepositoryInterface', { useValue: ProductRepository });
 
-  // container.registerSingleton('KafkaProducer', KafkaProducer);
+  container.registerSingleton('KafkaProducer', KafkaProducer);
   
 }
