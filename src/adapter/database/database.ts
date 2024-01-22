@@ -7,6 +7,11 @@ export class Database implements DatabaseInterface {
   
   public async connect(uri: string): Promise<void> {
     await mongoose.connect(uri, {
+      // ssl: true,
+      // tlsAllowInvalidCertificates: false,
+      // autoIndex: true,
+      // connectTimeoutMS: 100000,
+      // keepAlive: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
       ignoreUndefined: true,
