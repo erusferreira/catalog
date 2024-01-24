@@ -33,6 +33,9 @@ export class KafkaProducer implements MessageBrokerInterface {
   }
 
   public async sendNotification(catalogUpdateNotification: CatalogUpdateNotificationInterface): Promise<void> {
+    if (process.env.KAFKA_ENABLED === 'false') {
+      return
+    }
     await this.connect();
     const dataFormatted = {
       date: new Date().toISOString(),
