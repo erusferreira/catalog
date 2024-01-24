@@ -6,7 +6,7 @@ O projeto é composto por microserviços e microfrontends, utiliza banco de dado
 
 ## Serviço Catálogo
 
-Serviço Catalog: este é o serviço responsável pela gestão do catálogo. Desenvolvido utilizando Nodejs e Express.
+Serviço Catalog: este é o serviço responsável pela gestão do catálogo. Desenvolvido utilizando Nodejs, Express, Mongoose e MongoDB.
 
 ## Padrão Arquitetural
 
