@@ -4,7 +4,7 @@ import { CategoryRequestInterface } from "@adapter/types/category-request.interf
 
 export class CategoryMapper {
   
-  public static categoryCreateToDomain(categoryRequest: CategoryRequestInterface, catalog: Catalog | null) {
+  public static categoryCreateToDomain(categoryRequest: CategoryRequestInterface, catalog: Catalog | null): Category {
     const category = {
       name: categoryRequest.name,
       description: categoryRequest.description,

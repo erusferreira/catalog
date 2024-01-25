@@ -27,7 +27,7 @@ export class MerchantRepository implements MerchantRepositoryInterface {
     return await newMerchant.save();
   }
 
-  public async update(entity: MerchantRequestInterface, merchantId: string): Promise<Merchant | null> {
+  public async update(entity: Merchant, merchantId: string): Promise<Merchant | null> {
     return await this.modelMerchant.findByIdAndUpdate(merchantId, entity, {
       new: true,
       runValidators: true

@@ -22,7 +22,7 @@ export class CategoryRepository implements CategoryRepositoryInterface {
     return await this.modelCategory.findById(categoryId);
   }
   
-  public async create(entity: CategoryRequestInterface): Promise<Category> {
+  public async create(entity: Category): Promise<Category> {
     return await this.modelCategory.create(entity);
   }
 
