@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/index.ts",
-    "prod": "npm run build && pm2 start ./build/index.js --name catalog",
+    "prod": "npm run build && pm2 start ./build/src/index.js --name catalog",
     "build": "rimraf ./build && cross-env NODE_ENV=production && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -42,8 +42,8 @@
     "typescript": "^5.2.2"
   },
   "_moduleAliases": {
-    "@adapter"    : "build/adapter",
-    "@core" : "build/core"
+    "@adapter"    : "build/src/adapter",
+    "@core" : "build/src/core"
   },
   "_moduleDirectories": ["public"]
 }
