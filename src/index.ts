@@ -1,4 +1,4 @@
-require('module-alias/register');
+import 'module-alias/register';
 import "reflect-metadata";
 require("dotenv").config();
 

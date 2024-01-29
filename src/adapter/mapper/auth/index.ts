@@ -30,7 +30,9 @@ export class AuthMapper {
     return register;
   }
 
-  public static loginToDTO(user: User, token: string, merchants: Merchant[] ) {
+  public static loginToDTO(user: User, token: string,
+     merchants: Merchant[] 
+     ) {
     const login = {
       id: user._id.toString(),
       name: user.name,
@@ -39,7 +41,7 @@ export class AuthMapper {
       is_active: user.is_active,
       roles: user.roles,
       // TO DO - Allow multiple merchants when FE is ready
-      merchant: merchants[0].id,
+      merchant: merchants[0] && merchants[0].id ? merchants[0].id : [],
       token
     }
     return login;

@@ -20,7 +20,7 @@ export async function fixtures() {
     name: 'John Doe',
     email: 'email@email.com',
     cpf: '918.483.790-05',
-    password: bcrypt.hashSync('admin123', 10),
+    password: bcrypt.hashSync('Admin@123', 10),
     is_active: true,
     roles: RoleType.User
   });

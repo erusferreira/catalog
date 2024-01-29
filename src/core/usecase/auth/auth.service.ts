@@ -23,8 +23,6 @@ export class AuthService {
     public async login(userLogin: LoginRequest) {
       const aRepository = container.resolve(UserRepository);
       const user = await aRepository.findByEmail(userLogin.email);
-      const mRepository = container.resolve(MerchantRepository);
-      const merchants = await mRepository.listAllByOwner(user?.id);
 
       if (!user) {
         throw new AuthError(`Usuário com o email: ${userLogin.email} não encontrado!`);
@@ -39,8 +37,13 @@ export class AuthService {
       if (!passMatch) {
         throw new AuthError(`Usuário não autorizado!`);
       }
+
+      const userId = user.get('id');
+      const mRepository = container.resolve(MerchantRepository);
+      const merchantResult = await mRepository.listAllByOwner(userId);
+      
       const token = jwt.sign({id: user.id}, config.JWT_SECRET, { expiresIn: config.JWT_EXPIRES_IN_SECONDS })
-      return AuthMapper.loginToDTO(user, token, merchants);
+      return AuthMapper.loginToDTO(user, token, merchantResult);
     }
 
 }

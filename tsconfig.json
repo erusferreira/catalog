@@ -1,9 +1,8 @@
 {
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./src",
+    "outDir": "build",
+    "incremental": true,
     "target": "ES2021",
     "lib": ["ES2021"],
     "allowJs": true,
@@ -19,12 +18,10 @@
     "isolatedModules": true,
     "noEmit": false,
     "declaration": true,
-    "outDir": "build",
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
-    "composite": true,
     "useDefineForClassFields": true,
     "removeComments": true,
     "noEmitOnError": true,
@@ -34,11 +31,12 @@
       "@core/*": ["core/*"],
     }
   },
-  "include": ["src/**/*", "data/*.json", "src/**/*.hbs"],
+  "include": ["src/**/*", "data/*.json", "src/**/*.hbs", "public"],
   "exclude": [
     "node_modules",
     "./node_modules",
     "./node_modules/*",
-    "./node_modules/@types/node/index.d.ts",  
+    "./node_modules/@types/node/index.d.ts",
+    "dist"  
   ]
 }

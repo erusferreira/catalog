@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/index.ts",
-    "prod": "pm2 start ./build/src/index.js --name catalog-server",
-    "build": "rimraf ./build && tsc",
+    "prod": "npm run build && pm2 start ./build/index.js --name catalog",
+    "build": "rimraf ./build && cross-env NODE_ENV=production && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Érus",
@@ -42,7 +42,8 @@
     "typescript": "^5.2.2"
   },
   "_moduleAliases": {
-    "@adapter"    : "build/src/adapter",
-    "@core" : "build/src/core"
-  }
+    "@adapter"    : "build/adapter",
+    "@core" : "build/core"
+  },
+  "_moduleDirectories": ["public"]
 }
