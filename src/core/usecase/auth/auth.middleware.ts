@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction} from "express";
 const jwt = require("jsonwebtoken");
 
-import { JWT_SECRET } from "@adapter/config/config";
-import { AuthError } from "@adapter/utils/errors";
+import { JWT_SECRET } from "../../../adapter/config/config";
+import { AuthError } from "../../../adapter/utils/errors";
 
 export const isAuthenticated = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {

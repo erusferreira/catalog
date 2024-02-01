@@ -1,13 +1,13 @@
 import { inject, injectable, container } from "tsyringe";
 
-import { ItemRepositoryInterface } from "@core/repository/item-repository.interface";
-import { ItemRepository } from '@adapter/repository/item.repository';
-import { ItemRequestInterface } from "@adapter/types/item-request.interface";
-import { ItemMapper } from "@adapter/mapper/item";
-import { CategoryRepository } from "@adapter/repository/category.repository";
-import { ProductRepository } from "@adapter/repository/product.repository";
-import { Product } from "@core/entity/product";
-import { ProductRequestInterface } from "@adapter/types/product-request.interface";
+import { ItemRepositoryInterface } from "../../../core/repository/item-repository.interface";
+import { ItemRepository } from '../../../adapter/repository/item.repository';
+import { ItemRequestInterface } from "../../../adapter/types/item-request.interface";
+import { ItemMapper } from "../../../adapter/mapper/item";
+import { CategoryRepository } from "../../../adapter/repository/category.repository";
+import { ProductRepository } from "../../../adapter/repository/product.repository";
+import { Product } from "../../../core/entity/product";
+import { ProductRequestInterface } from "../../../adapter/types/product-request.interface";
 
 @injectable()
 export class CreateItemService {

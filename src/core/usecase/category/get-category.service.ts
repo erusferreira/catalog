@@ -1,8 +1,8 @@
 import { injectable, inject, container } from "tsyringe";
 
-import { CategoryRepositoryInterface } from "@core/repository/category-repository.interface";
-import { CategoryRepository } from "@adapter/repository/category.repository";
-import { Category } from "@core/entity/category";
+import { CategoryRepositoryInterface } from "../../../core/repository/category-repository.interface";
+import { CategoryRepository } from "../../../adapter/repository/category.repository";
+import { Category } from "../../../core/entity/category";
 
 @injectable()
 export class GetCategoryService {

@@ -1,6 +1,6 @@
-import { Catalog } from "@core/entity/catalog"
-import { Merchant } from "@core/entity/merchant";
-import { CatalogRequestInterface } from "@adapter/types/catalog-request.interface";
+import { Catalog } from "../../../core/entity/catalog"
+import { Merchant } from "../../../core/entity/merchant";
+import { CatalogRequestInterface } from "../../../adapter/types/catalog-request.interface";
 
 export class CatalogMapper {
   

@@ -1,6 +1,6 @@
 import { Document, Schema, model } from 'mongoose';
 
-import { Merchant } from '@core/entity/merchant';
+import { Merchant } from './../../core/entity/merchant';
 
 export interface Catalog extends Document {
   name: string;

@@ -1,9 +1,9 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { MerchantRepository } from '@adapter/repository/merchant.repository';
-import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
-import { MerchantRequestInterface } from '@adapter/types/merchant-request.interface';
-import { MerchantMapper } from '@adapter/mapper/merchant';
+import { MerchantRepository } from '../../../adapter/repository/merchant.repository';
+import { MerchantRepositoryInterface } from '../../../core/repository/merchant-repository.interface';
+import { MerchantRequestInterface } from '../../../adapter/types/merchant-request.interface';
+import { MerchantMapper } from '../../../adapter/mapper/merchant';
 
 @injectable()
 export class UpdateMerchantService {

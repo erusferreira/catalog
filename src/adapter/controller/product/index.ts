@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { injectable, container } from 'tsyringe';
 
-import { CreateProductService } from '@core/usecase/product/create-product.service';
-import { ProductRequestInterface } from '@adapter/types/product-request.interface';
-import { logger } from '@adapter/utils/logger';
+import { CreateProductService } from '../../../core/usecase/product/create-product.service';
+import { ProductRequestInterface } from '../../../adapter/types/product-request.interface';
+import { logger } from '../../../adapter/utils/logger';
 
 @injectable()
 export class ProductController {

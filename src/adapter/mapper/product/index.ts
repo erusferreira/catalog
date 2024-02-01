@@ -1,6 +1,6 @@
-import { ProductRequestInterface } from "@adapter/types/product-request.interface";
-import { Manufacturer } from "@core/entity/manufacturer";
-import { Product } from "@core/entity/product";
+import { ProductRequestInterface } from "../../../adapter/types/product-request.interface";
+import { Manufacturer } from "../../../core/entity/manufacturer";
+import { Product } from "../../../core/entity/product";
 
 export class ProductMapper {
   

@@ -1,8 +1,8 @@
 import { injectable, inject, container } from "tsyringe";
 
-import { ProductRepositoryInterface } from "@core/repository/product-repository.interface";
-import { ProductRepository } from "@adapter/repository/product.repository";
-import { ProductRequestInterface } from "@adapter/types/product-request.interface";
+import { ProductRepositoryInterface } from "../../../core/repository/product-repository.interface";
+import { ProductRepository } from "../../../adapter/repository/product.repository";
+import { ProductRequestInterface } from "../../../adapter/types/product-request.interface";
 
 @injectable()
 export class CreateProductService {

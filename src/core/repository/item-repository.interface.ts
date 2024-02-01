@@ -1,5 +1,5 @@
-import { Item } from "@core/entity/item";
-import { ItemRequestInterface } from '@adapter/types/item-request.interface';
+import { Item } from "./../../core/entity/item";
+import { ItemRequestInterface } from './../../adapter/types/item-request.interface';
 
 export interface ItemRepositoryInterface {
   findById(id: string): Promise<Item | null>;

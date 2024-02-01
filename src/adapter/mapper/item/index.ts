@@ -1,7 +1,7 @@
-import { ItemRequestInterface } from "@adapter/types/item-request.interface";
-import { Category } from "@core/entity/category";
-import { Item } from "@core/entity/item";
-import { Product } from "@core/entity/product";
+import { ItemRequestInterface } from "../../../adapter/types/item-request.interface";
+import { Category } from "../../../core/entity/category";
+import { Item } from "../../../core/entity/item";
+import { Product } from "../../../core/entity/product";
 
 export class ItemMapper {
   

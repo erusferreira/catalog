@@ -1,9 +1,9 @@
 import { inject, injectable, container } from "tsyringe";
 
-import { UserRepositoryInterface } from "@core/repository/user-repository.interface";
-import { UserRepository } from "@adapter/repository/user.repository";
-import { RegisterRequest } from "@adapter/types/auth-request.interface";
-import { AuthMapper } from "@adapter/mapper/auth";
+import { UserRepositoryInterface } from "../../../core/repository/user-repository.interface";
+import { UserRepository } from "../../../adapter/repository/user.repository";
+import { RegisterRequest } from "../../../adapter/types/auth-request.interface";
+import { AuthMapper } from "../../../adapter/mapper/auth";
 
 @injectable()
 export class CreateUserService {

@@ -1,8 +1,8 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
-import { MerchantRepository } from '@adapter/repository/merchant.repository';
-import { logger } from '@adapter/utils/logger';
+import { MerchantRepositoryInterface } from '../../../core/repository/merchant-repository.interface';
+import { MerchantRepository } from '../../../adapter/repository/merchant.repository';
+import { logger } from '../../../adapter/utils/logger';
 
 @injectable()
 export class DeleteMerchantService {

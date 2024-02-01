@@ -1,5 +1,5 @@
-import { CatalogRequestInterface } from "@adapter/types/catalog-request.interface";
-import { Catalog } from "@core/entity/catalog";
+import { CatalogRequestInterface } from "./../../adapter/types/catalog-request.interface";
+import { Catalog } from "./../../core/entity/catalog";
 
 export interface CatalogRepositoryInterface {
   listAll(): Promise<Catalog[]>;

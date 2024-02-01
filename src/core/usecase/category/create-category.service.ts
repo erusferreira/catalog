@@ -1,13 +1,13 @@
 import { injectable, inject, container } from 'tsyringe';
-import { CategoryMapper } from '@adapter/mapper/category';
+import { CategoryMapper } from '../../../adapter/mapper/category';
 
-import { Category } from '@core/entity/category';
-import { CategoryRepository } from '@adapter/repository/category.repository';
-import { CategoryRepositoryInterface } from '@core/repository/category-repository.interface';
-import { CategoryRequestInterface } from '@adapter/types/category-request.interface';
-import { logger } from '@adapter/utils/logger';
-import { CatalogRepository } from '@adapter/repository/catalog.repository';
-import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
+import { Category } from '../../../core/entity/category';
+import { CategoryRepository } from '../../../adapter/repository/category.repository';
+import { CategoryRepositoryInterface } from '../../../core/repository/category-repository.interface';
+import { CategoryRequestInterface } from '../../../adapter/types/category-request.interface';
+import { logger } from '../../../adapter/utils/logger';
+import { CatalogRepository } from '../../../adapter/repository/catalog.repository';
+import { CatalogRepositoryInterface } from '../../../core/repository/catalog-repository.interface';
 
 @injectable()
 export class CreateCategoryService {

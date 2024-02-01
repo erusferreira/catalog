@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import { AuthService } from "@core/usecase/auth/auth.service";
-import { CreateUserService } from "@core/usecase/user/create-user.service";
-import { logger } from "@adapter/utils/logger";
-import { LoginRequest, RegisterRequest } from "@adapter/types/auth-request.interface";
-import { AuthError } from "@adapter/utils/errors";
+import { AuthService } from "../../../core/usecase/auth/auth.service";
+import { CreateUserService } from "../../../core/usecase/user/create-user.service";
+import { logger } from "../../../adapter/utils/logger";
+import { LoginRequest, RegisterRequest } from "../../../adapter/types/auth-request.interface";
+import { AuthError } from "../../../adapter/utils/errors";
 
 export class AuthController {
   

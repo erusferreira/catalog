@@ -10,7 +10,7 @@ import routes from "../routes";
 import { logger } from "../utils/logger";
 import { PINO_HTTP_LOG_LEVEL } from "./config";
 import { addDependencyInjectionConfig } from "./dependencyInjection";
-import { errorHandler } from "@adapter/utils/error-handling";
+import { errorHandler } from "../utils/error-handling";
 
 export class App {
   private server: express.Application;
@@ -98,9 +98,10 @@ export class App {
     this.server.use(routeList);
 
     this.server.all("*", (req, res) => {
-      res.sendFile(
-        path.join(`${this.public}`, "../../../../public/index.html")
-      );
+      logger.debug(this.public)
+      // res.sendFile(
+        // path.join(`${this.public}`, "../../../../public/index.html")
+      // );
     });
   }
 

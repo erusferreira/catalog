@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { container } from "tsyringe";
 
-import { HealthCheckController } from "@adapter/controller/health";
+import { HealthCheckController } from "../../../adapter/controller/health";
 
 const healthRouter = Router();
 const healthCheckController = container.resolve(HealthCheckController);

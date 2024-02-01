@@ -1,10 +1,10 @@
 import { Kafka, Partitioners, Producer } from "kafkajs";
 
 import { logger } from '../../utils/logger';
-import { MessageBrokerInterface } from "@adapter/message-broker/kafka-producer/message-broker.interface";
-import { KAFKA_TOPIC } from '@adapter/config/config';
-import { KAFKA_BROKER_ADDRESS, KAFKA_BROKER_CLIENTID } from '@adapter/config/config';
-import { CatalogUpdateNotificationInterface } from '@adapter/types/catalog-update-notification.interface';
+import { MessageBrokerInterface } from "../../message-broker/kafka-producer/message-broker.interface";
+import { KAFKA_TOPIC } from '../../config/config';
+import { KAFKA_BROKER_ADDRESS, KAFKA_BROKER_CLIENTID } from '../../config/config';
+import { CatalogUpdateNotificationInterface } from '../../types/catalog-update-notification.interface';
 
 export class KafkaProducer implements MessageBrokerInterface {
 

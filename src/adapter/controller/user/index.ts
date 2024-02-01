@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { container, injectable } from "tsyringe";
 
-import { GetAllUsersService } from "@core/usecase/user/get-all-users.service";
+import { GetAllUsersService } from "../../../core/usecase/user/get-all-users.service";
 
 @injectable()
 export class UserController {

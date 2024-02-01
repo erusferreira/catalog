@@ -2,15 +2,15 @@ import { inject, injectable, container } from "tsyringe";
 import bcrypt from 'bcrypt';
 const jwt = require('jsonwebtoken');
 
-import { UserRepositoryInterface } from '@core/repository/user-repository.interface';
-import { UserRepository } from '@adapter/repository/user.repository';
-import { MerchantRepositoryInterface } from "@core/repository/merchant-repository.interface";
-import { MerchantRepository } from "@adapter/repository/merchant.repository";
+import { UserRepositoryInterface } from '../../../core/repository/user-repository.interface';
+import { UserRepository } from '../../../adapter/repository/user.repository';
+import { MerchantRepositoryInterface } from "../../../core/repository/merchant-repository.interface";
+import { MerchantRepository } from "../../../adapter/repository/merchant.repository";
 
-import { LoginRequest, RegisterRequest } from "@adapter/types/auth-request.interface";
-import { AuthMapper } from "@adapter/mapper/auth";
-import * as config from "@adapter/config/config";
-import { AuthError } from "@adapter/utils/errors";
+import { LoginRequest, RegisterRequest } from "../../../adapter/types/auth-request.interface";
+import { AuthMapper } from "../../../adapter/mapper/auth";
+import * as config from "../../../adapter/config/config";
+import { AuthError } from "../../../adapter/utils/errors";
 
 @injectable()
 export class AuthService {

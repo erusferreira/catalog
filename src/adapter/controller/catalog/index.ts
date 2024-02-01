@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import { injectable, container } from "tsyringe";
 
-import { CreateCatalogService } from "@core/usecase/catalog/create-catalog.service";
-import { DeleteCatalogService } from "@core/usecase/catalog/delete-catalog.service";
-import { GetAllCatalogsService } from "@core/usecase/catalog/get-all-catalogs.service";
-import { GetAllCatalogsByMerchantService } from "@core/usecase/catalog/get-all-by-merchant.service";
-import { GetCatalogService } from "@core/usecase/catalog/get-catalog.service";
-import { UpdateCatalogService } from "@core/usecase/catalog/update-catalog.service";
-import { CatalogRequestInterface } from "@adapter/types/catalog-request.interface";
-import { AuthError } from "@adapter/utils/errors";
+import { CreateCatalogService } from "../../../core/usecase/catalog/create-catalog.service";
+import { DeleteCatalogService } from "../../../core/usecase/catalog/delete-catalog.service";
+import { GetAllCatalogsService } from "../../../core/usecase/catalog/get-all-catalogs.service";
+import { GetAllCatalogsByMerchantService } from "../../../core/usecase/catalog/get-all-by-merchant.service";
+import { GetCatalogService } from "../../../core/usecase/catalog/get-catalog.service";
+import { UpdateCatalogService } from "../../../core/usecase/catalog/update-catalog.service";
+import { CatalogRequestInterface } from "../../../adapter/types/catalog-request.interface";
+import { AuthError } from "../../../adapter/utils/errors";
 
 @injectable()
 export class CatalogController {

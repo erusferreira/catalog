@@ -1,7 +1,7 @@
 import { Kafka } from 'kafkajs';
 const fs = require('fs');
 
-import { KAFKA_TOPIC, KAFKA_BROKER_ADDRESS, KAFKA_BROKER_CLIENTID } from '@adapter/config/config';
+import { KAFKA_TOPIC, KAFKA_BROKER_ADDRESS, KAFKA_BROKER_CLIENTID } from '../config/config';
 
 const kafka = new Kafka({
   clientId: KAFKA_BROKER_CLIENTID,

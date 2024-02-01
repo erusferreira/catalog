@@ -1,6 +1,6 @@
-import { Merchant } from '@core/entity/merchant';
-import { MerchantRequestInterface } from '@adapter/types/merchant-request.interface';
-import { User } from '@core/entity/user';
+import { Merchant } from '../../../core/entity/merchant';
+import { MerchantRequestInterface } from '../../../adapter/types/merchant-request.interface';
+import { User } from '../../../core/entity/user';
 
 export class MerchantMapper {
   

@@ -1,7 +1,7 @@
 import { injectable, inject, container } from "tsyringe";
 
-import { ItemRepositoryInterface } from "@core/repository/item-repository.interface";
-import { ItemRepository } from "@adapter/repository/item.repository";
+import { ItemRepositoryInterface } from "../../../core/repository/item-repository.interface";
+import { ItemRepository } from "../../../adapter/repository/item.repository";
 
 @injectable()
 export class GetItemService {

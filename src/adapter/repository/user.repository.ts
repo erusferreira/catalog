@@ -1,7 +1,7 @@
 import { injectable } from "tsyringe";
 
-import { UserRepositoryInterface } from "@core/repository/user-repository.interface";
-import { User, UserModel } from "@core/entity/user";
+import { UserRepositoryInterface } from "../../core/repository/user-repository.interface";
+import { User, UserModel } from "../../core/entity/user";
 
 @injectable()
 export class UserRepository implements UserRepositoryInterface {

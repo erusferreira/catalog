@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import { injectable, container } from 'tsyringe';
 
-import { CreateCategoryService } from '@core/usecase/category/create-category.service';
-import { GetAllCategoriesService } from '@core/usecase/category/get-all-categories.service';
-import { GetCategoryService } from '@core/usecase/category/get-category.service';
-import { CategoryRequestInterface } from '@adapter/types/category-request.interface';
-import { UpdateCategoryService } from '@core/usecase/category/update-category.service';
-import { logger } from '@adapter/utils/logger';
-import { DeleteCategoryService } from '@core/usecase/category/delete-category.service';
+import { CreateCategoryService } from '../../../core/usecase/category/create-category.service';
+import { GetAllCategoriesService } from '../../../core/usecase/category/get-all-categories.service';
+import { GetCategoryService } from '../../../core/usecase/category/get-category.service';
+import { CategoryRequestInterface } from '../../../adapter/types/category-request.interface';
+import { UpdateCategoryService } from '../../../core/usecase/category/update-category.service';
+import { logger } from '../../../adapter/utils/logger';
+import { DeleteCategoryService } from '../../../core/usecase/category/delete-category.service';
 
 @injectable()
 export class CategoryController {

@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { container } from "tsyringe";
 
-import { AuthController } from '@adapter/controller/auth';
+import { AuthController } from '../../../adapter/controller/auth';
 
 const authRouter = Router();
 const authController = container.resolve(AuthController);

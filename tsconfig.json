@@ -26,11 +26,7 @@
     "useDefineForClassFields": true,
     "removeComments": true,
     "noEmitOnError": true,
-    "types": ["node", "express"],
-    "paths": {
-      "@adapter/*": ["adapter/*"],
-      "@core/*": ["core/*"],
-    }
+    "types": ["node", "express"]
   },
   "include": ["src/**/*", "data/*.json", "src/**/*.hbs", "public"],
   "exclude": [

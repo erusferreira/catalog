@@ -1,6 +1,6 @@
 import { Document, Schema, model } from 'mongoose';
 
-import { RoleType } from '@adapter/enums';
+import { RoleType } from './../../adapter/enums';
 
 export interface User extends Document {
   name: string;

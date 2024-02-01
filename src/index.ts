@@ -2,11 +2,11 @@ import 'module-alias/register';
 import "reflect-metadata";
 require("dotenv").config();
 
-import { App } from "@adapter/config/app";
-import { Database } from "@adapter/database/database";
-import { logger } from "@adapter/utils/logger";
-import { MONGO_URL } from '@adapter/config/config';
-import { fixtures } from '@adapter/repository/fixtures';
+import { App } from "./adapter/config/app";
+import { Database } from "./adapter/database/database";
+import { logger } from "./adapter/utils/logger";
+import { MONGO_URL } from './adapter/config/config';
+import { fixtures } from './adapter/repository/fixtures';
 
 // import './adapter/message-broker/consumer'
 

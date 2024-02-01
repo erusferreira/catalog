@@ -1,6 +1,6 @@
 import { Schema, Document, model } from 'mongoose';
 
-import { Manufacturer } from '@core/entity/manufacturer';
+import { Manufacturer } from './../../core/entity/manufacturer';
 
 export interface Product extends Document {
   name: string;
@@ -24,7 +24,7 @@ const ProductSchema = new Schema({
   },
   ean_code: {
     type: String,
-    required: true
+    required: false
   },
   unit_measurement: {
     type: String,
@@ -37,7 +37,7 @@ const ProductSchema = new Schema({
   manufaturer: {
     type: Schema.Types.ObjectId,
     ref: 'Manufacturer',
-    required: true
+    required: false
   },
 },
 {

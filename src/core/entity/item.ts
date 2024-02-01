@@ -1,7 +1,7 @@
 import { Document, Schema, model } from 'mongoose';
 
 import { Category } from './category';
-import { Product } from '@core/entity/product';
+import { Product } from './../../core/entity/product';
 
 export interface Item extends Document {
   name: string;

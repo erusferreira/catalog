@@ -1,8 +1,8 @@
 import { Request, Response, Router } from "express";
 import { container } from "tsyringe";
 
-import { MerchantController } from "@adapter/controller/merchant";
-import { isAuthenticated } from "@core/usecase/auth/auth.middleware";
+import { MerchantController } from "../../../adapter/controller/merchant";
+import { isAuthenticated } from "../../../core/usecase/auth/auth.middleware";
 
 const merchantRouter = Router();
 const merchantController = container.resolve(MerchantController);

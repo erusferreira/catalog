@@ -1,4 +1,4 @@
-import { Manufacturer } from "@core/entity/manufacturer";
+import { Manufacturer } from "../../core/entity/manufacturer";
 
 export interface ProductRequestInterface {
     name: string;

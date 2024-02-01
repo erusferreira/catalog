@@ -1,5 +1,5 @@
-import { Category } from "@core/entity/category";
-import { CategoryRequestInterface } from '@adapter/types/category-request.interface';
+import { Category } from "./../../core/entity/category";
+import { CategoryRequestInterface } from './../../adapter/types/category-request.interface';
 
 export interface CategoryRepositoryInterface {
   listAll(): Promise<Category[]>;

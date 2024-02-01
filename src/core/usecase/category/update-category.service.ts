@@ -1,14 +1,14 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { Category } from '@core/entity/category';
-import { CategoryRepositoryInterface } from '@core/repository/category-repository.interface'; 
-import { CategoryRepository } from '@adapter/repository/category.repository';
-import { CategoryRequestInterface } from '@adapter/types/category-request.interface';
-import { CategoryMapper } from '@adapter/mapper/category';
-import { logger } from '@adapter/utils/logger';
-import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
-import { CatalogRepository } from '@adapter/repository/catalog.repository';
-import { CatalogMapper } from '@adapter/mapper/catalog';
+import { Category } from '../../../core/entity/category';
+import { CategoryRepositoryInterface } from '../../../core/repository/category-repository.interface'; 
+import { CategoryRepository } from '../../../adapter/repository/category.repository';
+import { CategoryRequestInterface } from '../../../adapter/types/category-request.interface';
+import { CategoryMapper } from '../../../adapter/mapper/category';
+import { logger } from '../../../adapter/utils/logger';
+import { CatalogRepositoryInterface } from '../../../core/repository/catalog-repository.interface';
+import { CatalogRepository } from '../../../adapter/repository/catalog.repository';
+import { CatalogMapper } from '../../../adapter/mapper/catalog';
 
 @injectable()
 export class UpdateCategoryService {

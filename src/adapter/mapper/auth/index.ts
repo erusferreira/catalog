@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt';
 
-import { RegisterRequest } from "@adapter/types/auth-request.interface";
-import { User } from "@core/entity/user";
-import { Merchant } from '@core/entity/merchant';
-import { RoleType } from "@adapter/enums";
+import { RegisterRequest } from "../../../adapter/types/auth-request.interface";
+import { User } from "../../../core/entity/user";
+import { Merchant } from '../../../core/entity/merchant';
+import { RoleType } from "../../../adapter/enums";
 
 export class AuthMapper {
   public static registerToDomain(user: RegisterRequest) {

@@ -1,4 +1,4 @@
-import { Merchant } from "@core/entity/merchant";
+import { Merchant } from "../../core/entity/merchant";
 
 export interface CatalogResponse {
   name: string;

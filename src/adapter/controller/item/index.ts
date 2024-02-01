@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import { injectable, container } from 'tsyringe';
 
-import { GetItemService } from '@core/usecase/item/get-item.service';
-import { CreateItemService } from '@core/usecase/item/create-item.service';
-import { DeleteItemService } from '@core/usecase/item/delete-item.service';
-import { ItemRequestInterface } from '@adapter/types/item-request.interface';
-import { logger } from '@adapter/utils/logger';
-import { UpdateItemService } from '@core/usecase/item/update-item.service';
+import { GetItemService } from '../../../core/usecase/item/get-item.service';
+import { CreateItemService } from '../../../core/usecase/item/create-item.service';
+import { DeleteItemService } from '../../../core/usecase/item/delete-item.service';
+import { ItemRequestInterface } from '../../../adapter/types/item-request.interface';
+import { logger } from '../../../adapter/utils/logger';
+import { UpdateItemService } from '../../../core/usecase/item/update-item.service';
 
 @injectable()
 export class ItemController {

@@ -1,8 +1,8 @@
 import { injectable, inject, container } from "tsyringe";
 
-import { CatalogRepositoryInterface } from "@core/repository/catalog-repository.interface";
-import { CatalogRepository } from "@adapter/repository/catalog.repository";
-import { Catalog } from "@core/entity/catalog";
+import { CatalogRepositoryInterface } from "../../../core/repository/catalog-repository.interface";
+import { CatalogRepository } from "../../../adapter/repository/catalog.repository";
+import { Catalog } from "../../../core/entity/catalog";
 
 @injectable()
 export class GetCatalogService {

@@ -1,6 +1,6 @@
-import { Catalog } from "@core/entity/catalog";
-import { Category } from "@core/entity/category"
-import { CategoryRequestInterface } from "@adapter/types/category-request.interface";
+import { Catalog } from "../../../core/entity/catalog";
+import { Category } from "../../../core/entity/category"
+import { CategoryRequestInterface } from "../../../adapter/types/category-request.interface";
 
 export class CategoryMapper {
   

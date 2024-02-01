@@ -1,8 +1,8 @@
 import { Request, Response, Router } from "express";
 import { container } from "tsyringe";
 
-import { CatalogController } from "@adapter/controller/catalog";
-import { isAuthenticated } from '@core/usecase/auth/auth.middleware';
+import { CatalogController } from "../../../adapter/controller/catalog";
+import { isAuthenticated } from '../../../core/usecase/auth/auth.middleware';
 
 const catalogRouter = Router();
 const catalogController = container.resolve(CatalogController);

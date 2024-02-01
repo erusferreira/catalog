@@ -1,14 +1,14 @@
 import { injectable, inject, container } from 'tsyringe';
 
-import { Catalog } from '@core/entity/catalog';
-import { CatalogRepositoryInterface } from '@core/repository/catalog-repository.interface';
-import { CatalogRepository } from '@adapter/repository/catalog.repository';
-import { CatalogRequestInterface } from '@adapter/types/catalog-request.interface';
-import { CatalogMapper } from '@adapter/mapper/catalog';
-import { MerchantRepositoryInterface } from '@core/repository/merchant-repository.interface';
-import { MerchantRepository } from '@adapter/repository/merchant.repository';
-import { KafkaProducer } from '@adapter/message-broker/kafka-producer/kafka-producer';
-import { CatalogUpdateNotificationInterface } from '@adapter/types/catalog-update-notification.interface';
+import { Catalog } from '../../../core/entity/catalog';
+import { CatalogRepositoryInterface } from '../../../core/repository/catalog-repository.interface';
+import { CatalogRepository } from '../../../adapter/repository/catalog.repository';
+import { CatalogRequestInterface } from '../../../adapter/types/catalog-request.interface';
+import { CatalogMapper } from '../../../adapter/mapper/catalog';
+import { MerchantRepositoryInterface } from '../../../core/repository/merchant-repository.interface';
+import { MerchantRepository } from '../../../adapter/repository/merchant.repository';
+import { KafkaProducer } from '../../../adapter/message-broker/kafka-producer/kafka-producer';
+import { CatalogUpdateNotificationInterface } from '../../../adapter/types/catalog-update-notification.interface';
 
 @injectable()
 export class UpdateCatalogService {
