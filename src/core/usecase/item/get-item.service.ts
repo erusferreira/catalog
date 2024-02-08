@@ -2,6 +2,7 @@ import { injectable, inject, container } from "tsyringe";
 
 import { ItemRepositoryInterface } from "../../../core/repository/item-repository.interface";
 import { ItemRepository } from "../../../adapter/repository/item.repository";
+import { Item } from "core/entity/item";
 
 @injectable()
 export class GetItemService {
@@ -9,7 +10,7 @@ export class GetItemService {
     @inject('ItemRepositoryInterface') private itemRepository: ItemRepositoryInterface
   ) {}
 
-  public async execute(itemId: string) {
+  public async execute(itemId: string): Promise<Item> {
     const iRepository = container.resolve(ItemRepository);
     const item = await iRepository.findById(itemId);
     

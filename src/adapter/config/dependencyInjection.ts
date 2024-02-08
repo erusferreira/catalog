@@ -32,7 +32,9 @@ import { CategoryController } from '../controller/category';
 
 import { ItemRepository } from '../repository/item.repository';
 import { ItemRepositoryInterface } from '../../core/repository/item-repository.interface';
+import { GetAllItemsService } from 'core/usecase/item/get-all-items.service';
 import { GetItemService } from '../../core/usecase/item/get-item.service';
+import { GetAllItemsByCategoryService } from 'core/usecase/item/get-all-by-category.service';
 import { CreateItemService } from '../../core/usecase/item/create-item.service';
 import { UpdateItemService } from '../../core/usecase/item/update-item.service';
 import { DeleteItemService } from '../../core/usecase/item/delete-item.service';
@@ -91,7 +93,9 @@ export function addDependencyInjectionConfig(): void {
   container.register('CategoryRepositoryInterface', { useValue: CategoryRepository });
 
   container.register('ItemController', { useValue: ItemController });
+  container.register('GetAllItemsService', { useValue: GetAllItemsService });
   container.register('GetItemService', { useValue: GetItemService });
+  container.register('GetAllItemsByCategoryService', { useValue: GetAllItemsByCategoryService });
   container.register('CreateItemService', { useValue: CreateItemService });
   container.register('UpdateItemService', { useValue: UpdateItemService });
   container.register('DeleteItemService', { useValue: DeleteItemService });

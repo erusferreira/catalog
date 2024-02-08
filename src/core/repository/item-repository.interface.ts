@@ -3,6 +3,7 @@ import { ItemRequestInterface } from './../../adapter/types/item-request.interfa
 
 export interface ItemRepositoryInterface {
   findById(id: string): Promise<Item | null>;
+  listAllByCategoryId(categoryId: string): Promise<Item[]>;
   create(entity: Item): Promise<Item>;
   update(entity: ItemRequestInterface, itemId: string): Promise<Item | null> ;
   delete(item: Item): Promise<void | any>

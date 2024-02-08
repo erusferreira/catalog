@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import { injectable, container } from 'tsyringe';
 
 import { GetItemService } from '../../../core/usecase/item/get-item.service';
+import { GetAllItemsService } from 'core/usecase/item/get-all-items.service';
+import { GetAllItemsByCategoryService } from 'core/usecase/item/get-all-by-category.service';
 import { CreateItemService } from '../../../core/usecase/item/create-item.service';
 import { DeleteItemService } from '../../../core/usecase/item/delete-item.service';
 import { ItemRequestInterface } from '../../../adapter/types/item-request.interface';
@@ -11,6 +13,19 @@ import { UpdateItemService } from '../../../core/usecase/item/update-item.servic
 @injectable()
 export class ItemController {
 
+  async listAll(req: Request, res: Response): Promise<unknown> {
+    try {
+      const getAllItemsService = container.resolve(GetAllItemsService);
+      const items = await getAllItemsService.execute();
+      if (items.length > 0) {
+        return res.status(200).json(items);
+      }
+    } catch (error: any) {
+      logger.error(error);
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
   async findById(req: Request, res: Response): Promise<unknown> {
     try {
       const { id } = req.params;
@@ -18,6 +33,21 @@ export class ItemController {
       const item = await getItemService.execute(id);
       if (item) {
         return res.status(200).json(item);
+      }
+    } catch (error: any) {
+      logger.error(error);
+      return res.status(500).json({ message: error.message });
+    }
+  }
+
+  async findAllByCategory(req: Request, res: Response): Promise<unknown> {
+    try {
+      logger.debug(req);
+      const { id } = req.params;
+      const getAllItemsByCategoryService = container.resolve(GetAllItemsByCategoryService);
+      const items = await getAllItemsByCategoryService.execute(id);
+      if (items) {
+        return res.status(200).json(items);
       }
     } catch (error: any) {
       logger.error(error);

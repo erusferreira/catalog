@@ -9,8 +9,16 @@ export class ItemRepository implements ItemRepositoryInterface {
   
   private modelItem = ItemModel;
 
-    public async findById(itemId: string): Promise<Item | null> {
+  public async listAll(): Promise<Item[]> {
+    return await this.modelItem.find();
+  }
+
+  public async findById(itemId: string): Promise<Item | null> {
     return await this.modelItem.findById(itemId);
+  }
+
+  public async listAllByCategoryId(categoryId: string): Promise<Item[]> {
+    return await this.modelItem.find({ category: categoryId });
   }
   
   public async create(entity: Item): Promise<Item> {
